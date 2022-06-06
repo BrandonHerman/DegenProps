@@ -13,7 +13,8 @@ const handler = async (req, res) => {
     res.status(201).send({ Message: "Added Account" });
   }
   if (req.method === "GET") {
-    return accountCollection.find().forEach(console.log);
+    console.log(accountCollection.find())
+    return accountCollection.find();
   }
 };
 
