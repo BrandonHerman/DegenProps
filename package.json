@@ -12,6 +12,8 @@
     "@chakra-ui/react": "^2.1.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/open-sans": "^4.5.10",
+    "@fontsource/raleway": "^4.5.9",
     "@parse/react-ssr": "^0.0.1-alpha.18",
     "@react-native-async-storage/async-storage": "^1.17.7",
     "formik": "^2.2.9",
@@ -20,7 +22,8 @@
     "next": "12.1.6",
     "parse": "^3.4.3",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.38",

@@ -1,18 +1,19 @@
 import { Center, Text, Box } from '@chakra-ui/react';
 
+import Layout from '../components/Layout.tsx';
 
 const Home = () => {
 
 
   return (
-<Box background="#212121" width='100%' height='100vh'>
+    <Layout>
   <Center>
         <Text color='white'>
         Home
         </Text>
   </Center>
-</Box>
 
+    </Layout>
   );
 
 
