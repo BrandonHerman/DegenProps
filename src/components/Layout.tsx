@@ -6,28 +6,25 @@ const Layout = ({children } : { children : React.ReactChild | React.ReactChild[]
  }) => {
     return (
       <>
-      <Box bgColor='#212121' position="absolute" zIndex='-2' top="0" bottom="0" left="0" right="0"/>
+      <Box overflow='none' bgColor='primaryWhite' position="absolute" zIndex='-2' top="0" bottom="0" left="0" right="0">
       <NavBar/>
-      <Container width='100%' maxW='2500px'>
-        <Center>
-          <Text textColor='white' fontSize='5xl'>
-          Degen Special
-          </Text>
-        </Center>
-      <Flex width='100%'>
+      </Box>
+      <Container width='100%' overflow='none' maxW='100%'>
       <Box
+        overflow='none'
+        left='20%'
         flex='1'
+        width='80%'
         bg='transparent'
         position='relative'
         px={['20px', '20px', '45px']}
         pt={['20px', '20px', '45px']}
         pb={'80px'}
-        border='1px solid white'
+        border='1px solid'
         height='100vh'
       >
         {children}
       </Box>
-      </Flex>
       </Container>
       </>
     );

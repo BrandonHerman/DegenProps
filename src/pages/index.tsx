@@ -41,12 +41,12 @@ export const Index = () => {
     <Box background="#212121" width='100%' height='100vh'>
     <SimpleGrid column={1} spacing="10px" justifyContent='center' width="100%" pt="25vh">
       <Center>
-        <Text color='white'>
+        <Text textColor='primaryWhite'>
           DegenProps baby
         </Text>
       </Center>
       <Center>
-        <Image width="25%" border="1px solid white" src='https://i.imgur.com/RjxRYti.jpg' />
+        <Image width="25%" border="1px solid" borderColor='primaryWhite' src='https://i.imgur.com/RjxRYti.jpg' />
       </Center>
       <Formik
         initialValues={{
@@ -66,7 +66,7 @@ export const Index = () => {
                 {({field, form }) => (
                   <FormControl isInvalid={form.errors.name && form.touched.name} isRequired>
                       <Center>
-                        <Input m='10px' {...field} textColor='white' width='30%' id='username' placeholder='username' />
+                        <Input m='10px' {...field} textColor='primaryWhite' width='30%' id='username' placeholder='username' />
                       </Center>
                   </FormControl>
                 )}
@@ -76,7 +76,7 @@ export const Index = () => {
                 {({field, form }) => (
                   <FormControl isInvalid={form.errors.name && form.touched.name} isRequired>
                       <Center>
-                        <Input {...field} m='10px' textColor='white' width='30%' id='password' placeholder='password' type='password' />
+                        <Input {...field} m='10px' textColor='primaryWhite' width='30%' id='password' placeholder='password' type='password' />
                       </Center>
                   </FormControl>
                 )}
@@ -85,7 +85,8 @@ export const Index = () => {
                   <Button
                     variant="outline"
                     border='1px solid'
-                    textColor='white'
+                    borderColor='primaryOrange'
+                    textColor='primaryWhite'
                     type='submit'
                     isLoading={isSubmitting}
                     _hover={{bg:'#FFFFFF00'}}

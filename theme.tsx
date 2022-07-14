@@ -7,8 +7,10 @@ const theme = extendTheme({
   },
   colors: {
     transparent: 'transparent',
-    black: '#000',
-    white: '#fff',
+    primaryOrange: '#E59560',
+    primaryBlue: '#BACEC1',
+    primaryWhite: '#F6F4E8',
+    primaryGreen: '#1D3124',
   },
   breakpoints: {
     sm: '30em',

@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Layout>
   <Center>
-        <Text color='white'>
+        <Text color='primaryGreen'>
         Home
         </Text>
   </Center>
