@@ -8,3 +8,4 @@ process.env
 logs/**
 
 .next
+.next/*
