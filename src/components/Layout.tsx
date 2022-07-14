@@ -6,24 +6,29 @@ const Layout = ({children } : { children : React.ReactChild | React.ReactChild[]
  }) => {
     return (
       <>
-      <Box overflow='none' bgColor='primaryWhite' position="absolute" zIndex='-2' top="0" bottom="0" left="0" right="0">
+      <Box overflow='none' mb='0px' height='100%' bgColor='primaryWhite' position="absolute" zIndex='-2' top="0" bottom="0" left="0" right="0">
       <NavBar/>
       </Box>
-      <Container width='100%' overflow='none' maxW='100%'>
+      <Container mb='0px' width='100%' overflow='none' maxW='100%'>
       <Box
-        overflow='none'
         left='20%'
+        maxHeight='100vh'
+          overflow='scroll'
         flex='1'
         width='80%'
-        bg='transparent'
+        bg='primaryWhite'
         position='relative'
         px={['20px', '20px', '45px']}
         pt={['20px', '20px', '45px']}
         pb={'80px'}
-        border='1px solid'
-        height='100%'
+        mb='0px'
+        border='3px solid'
+        borderColor = 'primaryBlue'
+        height='calc(100vh)'
       >
+        <Box>
         {children}
+        </Box>
       </Box>
       </Container>
       </>

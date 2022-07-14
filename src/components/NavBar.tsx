@@ -80,7 +80,7 @@ const NavBar = () => {
     as='nav'
     w='20%'
     display={['none', 'none', 'none', 'block']}
-    borderRight='2px solid'
+    border='2px solid'
     borderColor='primaryBlue'
     pt='48px'
     h='100vh'
