@@ -1,0 +1,10 @@
+.DS_Store
+.env-dev
+.env-prod
+index.js
+node_modules/
+.env
+process.env
+logs/**
+
+.next
