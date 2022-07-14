@@ -21,7 +21,7 @@ const Layout = ({children } : { children : React.ReactChild | React.ReactChild[]
         pt={['20px', '20px', '45px']}
         pb={'80px'}
         border='1px solid'
-        height='100vh'
+        height='100%'
       >
         {children}
       </Box>
