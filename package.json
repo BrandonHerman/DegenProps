@@ -16,6 +16,7 @@
     "@fontsource/raleway": "^4.5.9",
     "@parse/react-ssr": "^0.0.1-alpha.18",
     "@react-native-async-storage/async-storage": "^1.17.7",
+    "dotenv": "^16.0.1",
     "formik": "^2.2.9",
     "framer-motion": "^6",
     "mongodb": "^4.6.0",
