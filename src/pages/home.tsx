@@ -1,4 +1,5 @@
-import { Center, Flex, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Select, SimpleGrid, UnorderedList, FormControl, Button, Text, Box, Input, ListItem } from '@chakra-ui/react';
+import {InputGroup, IconButton, InputLeftElement, Center, Flex, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Select, SimpleGrid, UnorderedList, FormControl, Button, Text, Box, Input, ListItem } from '@chakra-ui/react';
+import {CloseIcon} from '@chakra-ui/icons';
 import FormInput from '../components/FormInput.tsx';
 import Layout from '../components/Layout.tsx';
 import {createProp, readProps} from '../services/createProp.tsx';
@@ -9,15 +10,32 @@ import * as Yup from 'yup';
 import Options from '../components/Options.tsx';
 
 function Home() {
-    const [titleValues, setTitleValues] = useState({ val: []});
-    const [oddValues, setOddValues] = useState({val: []});
-
+    const [titleValues, setTitleValues] = useState({ val: ['', '']});
+    const [oddValues, setOddValues] = useState({val: ['110', '-110']});
+    const [value, setValue] = useState('');
+    const format = (value) => `+` + value;
       function createInputs() {
         return titleValues.val.map((titleValue, i) =>
           <Flex m='30px' key={i} gap={5}>
-            <Input value={titleValue ||''} onChange={handleTitleChange.bind(i)} />
-            <Input value={oddValues.val[i]||''} onChange={handleOddChange.bind(i)} />
-            <Button textColor='primaryGreen' name={i} onClick={removeClick.bind(i)}>Remove</Button>
+            <Input value={titleValue ||''} borderColor='primaryGreen' placeholder='Insert Option' onChange={handleTitleChange.bind(i)} />
+            <NumberInput
+              onChange={handleOddChange.bind(i)}
+              borderColor='primaryGreen'
+              value={(oddValues.val[i]>0) ? format(oddValues.val[i]) : oddValues.val[i]}
+              step={10}
+            >
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
+
+          <IconButton aria-label='Remove Option'
+          textColor='red'
+          bgColor='#FFFFFF00'
+          icon={<CloseIcon/>}
+          name={i} onClick={removeClick.bind(i)}></IconButton>
           </Flex>
         );
       }
@@ -28,9 +46,9 @@ function Home() {
       setTitleValues({ val: vals });
     }
 
-    function handleOddChange(event) {
+    function handleOddChange(value) {
       let vals = [...oddValues.val];
-      vals[this] = event.target.value;
+      vals[this] = value;
       setOddValues({ val: vals });
     }
 
@@ -67,21 +85,52 @@ function Home() {
   return (
   <Layout>
       <Center>
-      <Text color="primaryGreen">
+      <Text mb='30px' fontSize='2xl' color="primaryGreen">
         New Prop
       </Text>
       </Center>
-      <Center>
        <form onSubmit={handleSubmit}>
-          <Center>
-          <Button mt='30px' textColor='primaryGreen' onClick={addClick}>Add</Button>
-          </Center>
+
+      <SimpleGrid columns={2} spacing={10}>
+      <Box>
+      <Text color="primaryGreen">
+        Title
+      </Text>
+          <Input borderColor='primaryGreen' isRequired m='10px' name='title' placeholder='Prop Title'/>
+      </Box>
+      <Box>
+      <Text color="primaryGreen">
+       Description
+      </Text>
+          <Input borderColor='primaryGreen' m='10px' name='description' placeholder='Prop Description'/>
+      </Box>
+      <Box>
+            <Center>
+          <Button
+            _hover = {{
+              bgColor: '#FFFFFF40'
+            }}
+            _active = {{
+              bgColor: '#FFFFFF80'
+                }}
+                mt='30px' variant='outline' borderColor='primaryGreen' textColor='primaryGreen' onClick={addClick}>Add Option</Button>
+            </Center>
+      </Box>
+      <Box>
           {createInputs()}
+      </Box>
+      </SimpleGrid>
           <Center>
-          <Button textColor='primaryGreen' type='submit'>Submit</Button>
+          <Button
+            _hover = {{
+              bgColor: '#FFFFFF40'
+            }}
+            _active = {{
+              bgColor: '#FFFFFF80'
+            }}
+            mt='30px' variant='outline' borderColor='primaryGreen' width='70%' textColor='primaryGreen' type='submit'>Submit</Button>
           </Center>
       </form>
-      </Center>
   </Layout>
   );
 
